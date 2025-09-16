@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MauiApp2
 {
-    internal class Item
+   public class Item
     {
         public string ?Name { get; set; }
         public int Quantity { get; set; }

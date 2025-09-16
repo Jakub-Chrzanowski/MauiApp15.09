@@ -4,7 +4,7 @@ namespace MauiApp2
 {
     public partial class MainPage : ContentPage
     {
-        ObservableCollection<Item> Products { get; set; }
+        public ObservableCollection<Item> Products { get; set; }
         public MainPage()
         {   
             InitializeComponent();
@@ -12,6 +12,9 @@ namespace MauiApp2
             BindingContext = this;
         }
 
-        
+        private void Add_Product_Clicked(object sender, EventArgs e)
+        {
+            Products.Add(new Item { Name = Name.Text, Quantity = int.Parse(Quantity.Text) });
+        }
     }
 }
