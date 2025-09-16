@@ -8,6 +8,7 @@
             <RowDefinition Height="0.1*"/>
             <RowDefinition Height="0.8*"/>
             <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="0,1*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -15,16 +16,17 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <Entry Placeholder="product" Grid.Row="0" Grid.ColumnSpan="2" Grid.Column="0" MaximumHeightRequest="60"/>
-        <Button Text="Add Product" Grid.Row="0" Grid.Column="2" MaximumHeightRequest="50"/>
-        <CollectionView ItemsSource="{Binding Products}" Grid.Row="1">
+        <Entry x:Name="Name" Placeholder="product" Grid.Row="0" Grid.ColumnSpan="2" Grid.Column="0" MaximumHeightRequest="60"/>
+        <Button x:Name="Add_Product" Text="Add Product" Grid.Row="0" Grid.Column="2" MaximumHeightRequest="50"/>
+        <Entry x:Name="Quantity" Placeholder="quantity" Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="0" MaximumHeightRequest="60"/>
+        <CollectionView ItemsSource="{Binding Products}" Grid.Row="2">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Label Text="Empty" />
+                    <Label Text="{Binding Products}" />
                 </DataTemplate> 
             </CollectionView.ItemTemplate>
         </CollectionView>
-        <Button Text="Delete" Grid.Row="2" Grid.Column="1" MaximumHeightRequest="60" />
+        <Button Text="Delete" Grid.Row="3" Grid.Column="1" MaximumHeightRequest="60" />
 
 
     </Grid>
