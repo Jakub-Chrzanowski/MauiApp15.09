@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiApp2.MainPage">
 
-    <Grid Margin="5">
+    <Grid Margin="5" BackgroundColor="LightYellow">
         <Grid.RowDefinitions>
             <RowDefinition Height="0.1*"/>
             <RowDefinition Height="0.1*"/>
@@ -16,13 +16,13 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <Entry x:Name="Name" Placeholder="product" Grid.Row="0" Grid.ColumnSpan="2" Grid.Column="0" MaximumHeightRequest="60"/>
-        <Button x:Name="Add_Product" Text="Add Product" Grid.Row="1" Grid.Column="2" MaximumHeightRequest="50" Clicked="Add_Product_Clicked"/>
-        <Entry x:Name="Quantity" Placeholder="quantity" Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="0" MaximumHeightRequest="60"/>
-        <CollectionView ItemsSource="{Binding Products}" Grid.Row="2">
+        <Entry x:Name="Name" Placeholder="product" Grid.Row="0" Grid.Column="0" MaximumHeightRequest="60"/>
+        <Button x:Name="Add_Product" Text="Add Product" Grid.Row="0" Grid.Column="2" MaximumHeightRequest="50" Clicked="Add_Product_Clicked"/>
+        <Entry x:Name="Quantity" Placeholder="quantity" Grid.Row="0" Grid.Column="1" MaximumHeightRequest="60"/>
+        <CollectionView x:Name="Products_Collection_View" ItemsSource="{Binding Products}" Grid.Row="2" SelectionMode="Single">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <HorizontalStackLayout>
+                    <HorizontalStackLayout Spacing="20">
                         <Label Text="{Binding Name}" />
                         <Label Text="{Binding Quantity}" />
                     </HorizontalStackLayout>
@@ -30,7 +30,7 @@
                 </DataTemplate> 
             </CollectionView.ItemTemplate>
         </CollectionView>
-        <Button Text="Delete" Grid.Row="3" Grid.Column="1" MaximumHeightRequest="60" />
+        <Button x:Name="Delete_Product" Text="Delete" Grid.Row="3" Grid.Column="1" MaximumHeightRequest="50" BackgroundColor="Red" Clicked="Delete_Product_Clicked" />
 
 
     </Grid>
